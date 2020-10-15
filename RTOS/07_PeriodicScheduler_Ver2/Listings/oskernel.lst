@@ -1,0 +1,156 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             |.text|, CODE,READONLY,ALIGN=2
+    2 00000000                 THUMB
+    3 00000000                 PRESERVE8
+    4 00000000                 EXTERN           currentPt
+    5 00000000                 IMPORT           osSchedulerRoundRobin
+    6 00000000                 EXPORT           SysTick_Handler
+    7 00000000                 EXPORT           osSchedulerLaunch
+    8 00000000         
+    9 00000000         ; On Each SysTick_Handler save the current thread and lo
+                       ad the next thread:
+   10 00000000         ; --------------------------------------
+   11 00000000         ; 1. save stack to thread (currentPtr->stackPtr)
+   12 00000000         ; 2. switch to the new thread (currentPtr = currentPtr->
+                       nextPtr)
+   13 00000000         ; 3. load stack from next thread for switch (SP = curren
+                       tPtr->stackPtr)
+   14 00000000         
+   15 00000000         SysTick_Handler                      ; Invoking the call
+                                                            , auto saves R0, R1
+                                                            , R2, R3, R12, LR, 
+                                                            PC, PSR
+   16 00000000 B672            CPSID            I           ; Disable interupts
+                                                            
+   17 00000002 E92D 0FF0       PUSH             {R4-R11}    ; Push registers R4
+                                                             to R11 unto the st
+                                                            ack (saving them)
+   18 00000006 480F            LDR              R0,=currentPt ; R0 points to cu
+                                                            rrentPt (R0 = &curr
+                                                            entPt)
+   19 00000008 6801            LDR              R1,[R0]     ; R1 is currentPt (
+                                                            R1 = currentPt)
+   20 0000000A F8C1 D000       STR              SP,[R1]     ; Saves the SP to R
+                                                            1 (currentPt->stack
+                                                            Ptr = SP)
+   21 0000000E B501            PUSH             {R0,LR}
+   22 00000010 F7FF FFFE       BL               osSchedulerRoundRobin ; This fu
+                                                            nction will adavnce
+                                                             the currentPt to t
+                                                            he nextPt
+   23 00000014 E8BD 4001       POP              {R0,LR}
+   24 00000018 6801            LDR              R1,[R0]
+   25 0000001A F8D1 D000       LDR              SP,[R1]     ; SP = currentPt->s
+                                                            tackPtr
+   26 0000001E E8BD 0FF0       POP              {R4-R11}    ; restore R4 to R11
+                                                             from new stack (th
+                                                            e stack of the next
+                                                             thread)
+   27 00000022 B662            CPSIE            I           ; Enable interputs
+   28 00000024 4770            BX               LR          ; return from subro
+                                                            utine. Automaticall
+                                                            y restores R0, R1, 
+                                                            R2, R3, R12, LR, PC
+                                                            , PSR from new stac
+                                                            k (next thread)
+   29 00000026         
+   30 00000026         
+   31 00000026         
+   32 00000026         osSchedulerLaunch                    ; We launch the sch
+                                                            eduler by setting S
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                                                            P to the value of t
+                                                            he first thread
+   33 00000026 4807            LDR              R0,=currentPt
+   34 00000028 6802            LDR              R2,[R0]     ; R2 = currentPt
+   35 0000002A F8D2 D000       LDR              SP,[R2]     ; SP = currentPt->s
+                                                            tackPt
+   36 0000002E E8BD 0FF0       POP              {R4-R11}    ; restore R4 to R11
+                                                             from the thread st
+                                                            ack
+   37 00000032 BC0F            POP              {R0-R3}
+   38 00000034 F85D CB04       POP              {R12}
+   39 00000038 B001            ADD              SP,SP,#4    ; Skip LR
+   40 0000003A F85D EB04       POP              {LR}
+   41 0000003E B001            ADD              SP,SP,#4    ; Skip PSR
+   42 00000040 B662            CPSIE            I           ; Enable interputs
+   43 00000042 4770            BX               LR
+   44 00000044         
+   45 00000044         
+   46 00000044                 ALIGN
+   47 00000044                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\oskernel_1.d -o.\objects\oskernel_1.o -I.\RTE\Device\
+STM32F411VETx -I.\RTE\_STM32F411 -Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\
+Include -Ie:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\ST
+M32F4xx\Include -Ie:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\STM32F4xx_
+HAL_Driver\Inc --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 
+527" --predefine="_RTE_ SETA 1" --predefine="STM32F411xE SETA 1" --list=.\listi
+ngs\oskernel.lst osKernel.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 1 in file osKernel.s
+   Uses
+      None
+Comment: .text unused
+SysTick_Handler 00000000
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 15 in file osKernel.s
+   Uses
+      At line 6 in file osKernel.s
+Comment: SysTick_Handler used once
+osSchedulerLaunch 00000026
+
+Symbol: osSchedulerLaunch
+   Definitions
+      At line 32 in file osKernel.s
+   Uses
+      At line 7 in file osKernel.s
+Comment: osSchedulerLaunch used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+currentPt 00000000
+
+Symbol: currentPt
+   Definitions
+      At line 4 in file osKernel.s
+   Uses
+      At line 18 in file osKernel.s
+      At line 33 in file osKernel.s
+
+osSchedulerRoundRobin 00000000
+
+Symbol: osSchedulerRoundRobin
+   Definitions
+      At line 5 in file osKernel.s
+   Uses
+      At line 22 in file osKernel.s
+Comment: osSchedulerRoundRobin used once
+2 symbols
+342 symbols in table

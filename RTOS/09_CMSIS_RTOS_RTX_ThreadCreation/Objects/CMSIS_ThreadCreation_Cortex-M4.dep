@@ -1,0 +1,30 @@
+Dependencies for Project 'CMSIS_ThreadCreation', Target 'Cortex-M4': (DO NOT MODIFY !)
+F (.\main.c)(0x5D73A276)(--c99 --gnu -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Cortex-M4-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\INC-Ie:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F411xE-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x5C8A6ACC)
+I (e:\dev\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F137E)
+I (e:\dev\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F137C)
+I (e:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5A8FD9B4)
+I (e:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x5A8FD9B4)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8F9424)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B975A94)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8F9424)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8F9424)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F9424)
+I (e:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5A8FD9B4)
+F (RTE\CMSIS\RTX_Conf_CM.c)(0x5C8A6ACC)(--c99 --gnu -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Cortex-M4-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\INC-Ie:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F411xE-o .\objects\rtx_conf_cm.o --omf_browse .\objects\rtx_conf_cm.crf --depend .\objects\rtx_conf_cm.d)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x5C8A6ACC)
+I (e:\dev\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F137E)
+I (e:\dev\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599F137C)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\INC\RTX_CM_lib.h)(0x5C8A6ACC)
+F (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM4.lib)(0x5C8BA64A)()
+F (RTE\Device\STM32F411VETx\startup_stm32f411xe.s)(0x5A8FD9B4)(--cpu Cortex-M4.fp --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Cortex-M4-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\INC-Ie:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "STM32F411xE SETA 1"--list .\listings\startup_stm32f411xe.lst --xref -o .\objects\startup_stm32f411xe.o --depend .\objects\startup_stm32f411xe.d)
+F (RTE\Device\STM32F411VETx\system_stm32f4xx.c)(0x5A8FD9B4)(--c99 --gnu -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Cortex-M4-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-Ie:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\RTOS\RTX\INC-Ie:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F411xE-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
+I (e:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5A8FD9B4)
+I (e:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h)(0x5A8FD9B4)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8F9424)
+I (e:\dev\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599F137E)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_version.h)(0x5B975A94)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_compiler.h)(0x5C8F9424)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8F9424)
+I (e:\dev\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F9424)
+I (e:\dev\Arm\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5A8FD9B4)
